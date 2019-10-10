@@ -8,10 +8,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    items: [],
-    id: uuid(),
-    item: '',
-    editItem: false
+      items: [],
+      id: uuid(),
+      item: '',
+      editItem: false
     };
   }
 
