@@ -4,7 +4,6 @@ import TodoList from './components/TodoList';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import uuid from 'uuid';
-//import './App.css';
 
 class App extends Component {
 	constructor(props) {
@@ -54,7 +53,7 @@ class App extends Component {
 	};
 
 	handleDelete = (id) => {
-		//console.log(id);
+		
 		let filteredItems = this.state.items.filter((item) => item.id !== id);
 		this.setState({
 			items: filteredItems
@@ -62,7 +61,7 @@ class App extends Component {
 	};
 
 	handleEdit = (id) => {
-		// console.log(id);
+		
 		let filteredItems = this.state.items.filter((item) => item.id !== id);
 
 		let selectedItem = this.state.items.find((item) => item.id === id);
@@ -75,13 +74,11 @@ class App extends Component {
 			id: id
 		});
 
-		// console.log(this.state.items)
-		// const { items } = this.state;
+		
 	};
 
 	render() {
-		//  console.log(this.state.items)
-		//const { items } = this.state;
+		
 		return (
 			<div className='container'>
 				<div className='row'>
