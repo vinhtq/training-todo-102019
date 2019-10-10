@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import uuid from 'uuid';
 
@@ -16,7 +15,7 @@ class App extends Component {
 		};
 	}
 
-  handleChange = (e) => {
+	handleChange = (e) => {
 		e.preventDefault();
 		this.setState({
 			item: e.target.value
@@ -24,26 +23,23 @@ class App extends Component {
 	};
 
 	handleSubmit = (e) => {
-    e.preventDefault();
-    
-    if (!this.state.item.trim()) return
-    
-       
-			let newItem = {
-				id: this.state.id,
-				title: this.state.item
-			};
-			console.log(newItem);
+		e.preventDefault();
 
-			let updatedItems = [...this.state.items, newItem];
+		if (!this.state.item.trim()) return;
 
-			this.setState({
-				items: updatedItems,
-				item: '',
-				id: uuid(),
-				editItem: false
-			});
-	
+		let newItem = {
+			id: this.state.id,
+			title: this.state.item
+		};
+
+		let updatedItems = [...this.state.items, newItem];
+
+		this.setState({
+			items: updatedItems,
+			item: '',
+			id: uuid(),
+			editItem: false
+		});
 	};
 
 	clearList = () => {
@@ -53,7 +49,6 @@ class App extends Component {
 	};
 
 	handleDelete = (id) => {
-		
 		let filteredItems = this.state.items.filter((item) => item.id !== id);
 		this.setState({
 			items: filteredItems
@@ -61,11 +56,9 @@ class App extends Component {
 	};
 
 	handleEdit = (id) => {
-		
 		let filteredItems = this.state.items.filter((item) => item.id !== id);
 
 		let selectedItem = this.state.items.find((item) => item.id === id);
-		console.log(selectedItem);
 
 		this.setState({
 			items: filteredItems,
@@ -73,19 +66,14 @@ class App extends Component {
 			editItem: true,
 			id: id
 		});
-
-		
 	};
 
 	render() {
-		
 		return (
 			<div className='container'>
 				<div className='row'>
 					<div className='col-5 mx-auto col-md-8 mt-4'>
-						<h3 className='text-capitalize text-center'>
-							Your Daily Works{' '}
-						</h3>
+						<h3 className='text-capitalize text-center'>Your Daily Works </h3>
 						<TodoInput
 							item={this.state.item}
 							handleChange={this.handleChange}
