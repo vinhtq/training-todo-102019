@@ -1,8 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
+
+import uuid from 'uuid';
+
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import uuid from 'uuid';
 
 class App extends Component {
   constructor(props) {
@@ -27,12 +29,12 @@ class App extends Component {
 
     if (!this.state.item.trim()) return;
 
-    let newItem = {
+    const newItem = {
       id: this.state.id,
       title: this.state.item
     };
 
-    let updatedItems = [...this.state.items, newItem];
+    const updatedItems = [...this.state.items, newItem];
 
     this.setState({
       items: updatedItems,
@@ -49,16 +51,16 @@ class App extends Component {
   };
 
   handleDelete = (id) => {
-    let filteredItems = this.state.items.filter((item) => item.id !== id);
+    const filteredItems = this.state.items.filter((item) => item.id !== id);
     this.setState({
       items: filteredItems
     });
   };
 
   handleEdit = (id) => {
-    let filteredItems = this.state.items.filter((item) => item.id !== id);
+    const filteredItems = this.state.items.filter((item) => item.id !== id);
 
-    let selectedItem = this.state.items.find((item) => item.id === id);
+    const selectedItem = this.state.items.find((item) => item.id === id);
 
     this.setState({
       items: filteredItems,
